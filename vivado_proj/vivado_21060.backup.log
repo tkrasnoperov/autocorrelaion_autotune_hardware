@@ -1,0 +1,924 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Sep 19 12:36:21 2019
+# Process ID: 21060
+# Current directory: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19892
+# Log file: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+0 Beta devices matching pattern found, 0 enabled.
+INFO: [Common 17-1463] Init.tcl in C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/init.tcl is not used. Vivado_init.tcl is already sourced.
+start_gui
+source D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-100/create_project.tcl
+# set proj_name "Pmod-I2S2-Arty-A7-100"
+# set brd_part "digilentinc.com:arty-a7-100:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-100/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 946.828 ; gain = 80.227
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Arty-A7-100
+# current_project $proj_name
+# set_property generic {NUMBER_OF_SWITCHES=4 RESET_POLARITY=0} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {100.000} [get_ips clk_wiz_0]
+100.000
+update_compile_order -fileset sources_1
+source D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-35/create_project.tcl
+# set proj_name "Pmod-I2S2-Arty-A7-35"
+# set brd_part "digilentinc.com:arty-a7-35:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-35/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1126.168 ; gain = 32.137
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Arty-A7-35
+# current_project $proj_name
+# set_property generic {NUMBER_OF_SWITCHES=4 RESET_POLARITY=0} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {100.000} [get_ips clk_wiz_0]
+100.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Arty-A7-100
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Arty-A7-35
+report_ip_status -name ip_status 
+source D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-25/create_project.tcl
+# set proj_name "Pmod-I2S2-Arty-S7-25"
+# set brd_part "digilentinc.com:arty-s7-25:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-25/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Arty-S7-25
+# current_project $proj_name
+# set_property generic {NUMBER_OF_SWITCHES=4 RESET_POLARITY=0} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {100.000} [get_ips clk_wiz_0]
+100.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Arty-A7-100
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Arty-S7-25
+current_project Pmod-I2S2-Arty-A7-35
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Arty-S7-25
+report_ip_status -name ip_status 
+source D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-50/create_project.tcl
+# set proj_name "Pmod-I2S2-Arty-S7-50"
+# set brd_part "digilentinc.com:arty-s7-50:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-50/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1468.211 ; gain = 33.438
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Arty-S7-50
+# current_project $proj_name
+# set_property generic {RESET_POLARITY=0 NUMBER_OF_SWITCHES=4} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {100.000} [get_ips clk_wiz_0]
+100.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Arty-S7-25
+source D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/create_project.tcl
+# set proj_name "Pmod-I2S2-Cmod-S7-25"
+# set brd_part "digilentinc.com:cmod-s7-25:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Cmod-S7-25
+# current_project $proj_name
+# set_property generic {RESET_POLARITY=1 NUMBER_OF_SWITCHES=1} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {12.000} [get_ips clk_wiz_0]
+12.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Arty-S7-25
+source D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-07s/create_project.tcl
+# set proj_name "Pmod-I2S2-Cora-Z7-07S"
+# set brd_part "digilentinc.com:cora-z7-07s:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-07s/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+upgrade_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1844.629 ; gain = 125.895
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Cora-Z7-07S
+# current_project $proj_name
+# set_property generic {RESET_POLARITY=1 NUMBER_OF_SWITCHES=1} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {125.000} [get_ips clk_wiz_0]
+125.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Arty-S7-25
+source D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-10/create_project.tcl
+# set proj_name "Pmod-I2S2-Cora-Z7-10"
+# set brd_part "digilentinc.com:cora-z7-10:1.0"
+# set ::create_path [file dirname [info script]]/proj
+# source [file normalize [file dirname [info script]]/../scripts/create_project.tcl]
+## if {[file exists $::create_path] == 0} {
+## 	file mkdir $::create_path
+## }
+## set dest_dir $::create_path
+## puts "INFO: Creating new project in $dest_dir"
+INFO: Creating new project in D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-10/proj
+## cd $dest_dir
+## set board_obj [get_boards -filter "NAME == $brd_part"]
+## set board_name [get_property board_name $board_obj]
+## set part [get_property part_name [get_board_components -of_objects $board_obj -filter "NAME =~ *part0*"]]
+## set origin_dir [file dirname [info script]]/..
+## set repo_dir $origin_dir/repo
+## create_project $proj_name $dest_dir
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+## set proj_dir [get_property directory [current_project]]
+## set obj [get_projects $proj_name]
+## set_property "default_lib" "xil_defaultlib" $obj
+## set_property "part" $part $obj
+## set_property "board_part" $brd_part $obj
+## set_property "simulator_language" "Mixed" $obj
+## set_property "target_language" "VHDL" $obj
+## set_property "corecontainer.enable" "0" $obj
+## set_property "ip_cache_permissions" "read write" $obj
+## set_property "ip_output_repo" "[file normalize "$repo_dir/cache"]" $obj
+## if {[string equal [get_filesets -quiet sources_1] ""]} {
+##   create_fileset -srcset sources_1
+## }
+## if {[string equal [get_filesets -quiet constrs_1] ""]} {
+##   create_fileset -constrset constrs_1
+## }
+## set obj [get_filesets sources_1]
+## set_property "ip_repo_paths" "[file normalize $repo_dir]" $obj
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+## foreach src_dir [list $origin_dir/shared/src $origin_dir/$board_name/src] {
+## 	# Add conventional sources
+## 	import_files -quiet $src_dir/hdl
+## 
+## 	# Add IPs
+## 	# TODO: handle IP containers files
+## 	import_files -quiet [glob -nocomplain $src_dir/ip/*/*.xci]
+## 
+## 	# Add constraints
+## 	import_files -fileset constrs_1 -quiet $src_dir/constraints
+## }
+## if {[string equal [get_runs -quiet synth_1] ""]} {
+## 	create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+## } else {
+## 	set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 	set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
+## }
+## set obj [get_runs synth_1]
+## set_property "part" $part $obj
+## set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## current_run -synthesis [get_runs synth_1]
+## if {[string equal [get_runs -quiet impl_1] ""]} {
+##   create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+## } else {
+##   set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+##   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
+## }
+## set obj [get_runs impl_1]
+## set_property "part" $part $obj
+## set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## current_run -implementation [get_runs impl_1]
+## set old_vlnv [expr {[get_property VLNV [get_ipdefs -filter VLNV=~*:clk_wiz:*]] != [get_property IPDEF [get_ips clk_wiz_0]]}]
+## set wrong_board [expr {$brd_part != [get_property BOARD [get_ips clk_wiz_0]]}]
+## if {$old_vlnv || $wrong_board} {
+## 	report_ip_status -name ip_status 
+## 	upgrade_ip -vlnv [get_ipdefs -filter VLNV=~*:clk_wiz:*] [get_ips clk_wiz_0]
+## 	export_ip_user_files -of_objects [get_ips clk_wiz_0] -no_script -sync -force -quiet
+## }
+Upgrading 'clk_wiz_0'
+INFO: [IP_Flow 19-1972] Upgraded clk_wiz_0 from Clocking Wizard 5.4 to Clocking Wizard 6.0
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+upgrade_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.574 ; gain = 129.094
+## puts "INFO: Project created:$proj_name"
+INFO: Project created:Pmod-I2S2-Cora-Z7-10
+# current_project $proj_name
+# set_property generic {RESET_POLARITY=1 NUMBER_OF_SWITCHES=1} [current_fileset]
+# set_property CONFIG.PRIM_IN_FREQ {125.000} [get_ips clk_wiz_0]
+125.000
+update_compile_order -fileset sources_1
+current_project Pmod-I2S2-Cmod-S7-25
+report_ip_status -name ip_status 
+current_project Pmod-I2S2-Arty-S7-50
+report_ip_status -name ip_status 
+current_project Pmod-I2S2-Arty-A7-100
+report_ip_status -name ip_status 
+current_project Pmod-I2S2-Arty-A7-35
+report_ip_status -name ip_status 
+current_project Pmod-I2S2-Cora-Z7-07S
+report_ip_status -name ip_status 
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Arty-A7-35
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Cora-Z7-07S
+current_project Pmod-I2S2-Arty-S7-25
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Cora-Z7-07S
+current_project Pmod-I2S2-Arty-A7-100
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Cora-Z7-07S
+current_project Pmod-I2S2-Arty-S7-50
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Cora-Z7-07S
+current_project Pmod-I2S2-Cmod-S7-25
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+report_ip_status -name ip_status
+current_project Pmod-I2S2-Cora-Z7-07S
+current_project Pmod-I2S2-Cora-Z7-10
+report_ip_status -name ip_status 
+current_project Pmod-I2S2-Arty-S7-50
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:44:35 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-50/proj/Pmod-I2S2-Arty-S7-50.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-50/proj/Pmod-I2S2-Arty-S7-50.runs/synth_1/runme.log
+[Thu Sep 19 12:44:35 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-50/proj/Pmod-I2S2-Arty-S7-50.runs/impl_1/runme.log
+current_project Pmod-I2S2-Cmod-S7-25
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:44:42 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/synth_1/runme.log
+[Thu Sep 19 12:44:42 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/impl_1/runme.log
+current_project Pmod-I2S2-Arty-A7-100
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:44:51 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-100/proj/Pmod-I2S2-Arty-A7-100.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-100/proj/Pmod-I2S2-Arty-A7-100.runs/synth_1/runme.log
+[Thu Sep 19 12:44:51 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-100/proj/Pmod-I2S2-Arty-A7-100.runs/impl_1/runme.log
+current_project Pmod-I2S2-Arty-S7-25
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:45:00 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-25/proj/Pmod-I2S2-Arty-S7-25.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-25/proj/Pmod-I2S2-Arty-S7-25.runs/synth_1/runme.log
+[Thu Sep 19 12:45:00 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-s7-25/proj/Pmod-I2S2-Arty-S7-25.runs/impl_1/runme.log
+current_project Pmod-I2S2-Cora-Z7-10
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:45:05 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-10/proj/Pmod-I2S2-Cora-Z7-10.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-10/proj/Pmod-I2S2-Cora-Z7-10.runs/synth_1/runme.log
+[Thu Sep 19 12:45:06 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-10/proj/Pmod-I2S2-Cora-Z7-10.runs/impl_1/runme.log
+current_project Pmod-I2S2-Arty-A7-35
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:45:12 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-35/proj/Pmod-I2S2-Arty-A7-35.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-35/proj/Pmod-I2S2-Arty-A7-35.runs/synth_1/runme.log
+[Thu Sep 19 12:45:12 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/arty-a7-35/proj/Pmod-I2S2-Arty-A7-35.runs/impl_1/runme.log
+current_project Pmod-I2S2-Cora-Z7-07S
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Thu Sep 19 12:45:17 2019] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-07s/proj/Pmod-I2S2-Cora-Z7-07S.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-07s/proj/Pmod-I2S2-Cora-Z7-07S.runs/synth_1/runme.log
+[Thu Sep 19 12:45:17 2019] Launched impl_1...
+Run output will be captured here: D:/Github/Pmod-I2S2/Pmod-I2S2/cora-z7-07s/proj/Pmod-I2S2-Cora-Z7-07S.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.2
+  **** Build date : Jun 14 2018-20:42:52
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328000001A
+set_property PROGRAM.FILE {D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/impl_1/top.bit} [get_hw_devices xc7s25_0]
+current_hw_device [get_hw_devices xc7s25_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s25_0] 0]
+INFO: [Labtools 27-1434] Device xc7s25 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+current_project Pmod-I2S2-Cmod-S7-25
+set_property PROBES.FILE {} [get_hw_devices xc7s25_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s25_0]
+set_property PROGRAM.FILE {D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/impl_1/top.bit} [get_hw_devices xc7s25_0]
+program_hw_devices [get_hw_devices xc7s25_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s25_0] 0]
+INFO: [Labtools 27-1434] Device xc7s25 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210328000001A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328000001A
+INFO: [Labtools 27-1434] Device xc7s25 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7s25_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s25_0]
+set_property PROGRAM.FILE {D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/proj/Pmod-I2S2-Cmod-S7-25.runs/impl_1/top.bit} [get_hw_devices xc7s25_0]
+program_hw_devices [get_hw_devices xc7s25_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s25_0] 0]
+INFO: [Labtools 27-1434] Device xc7s25 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210328000001A
+archive_project D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/Pmod-I2S2-Cmod-S7-25.xpr.zip -temp_dir C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-21060-WK142 -force -include_local_ip_cache
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-21060-WK142' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'clk_wiz_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'clk_wiz_0_impl_1'...
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (D:/Github/Pmod-I2S2/Pmod-I2S2/cmod-s7-25/Pmod-I2S2-Cmod-S7-25.xpr.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 2985.793 ; gain = 50.594
+foreach project [get_projects] {current_project $project; archive_project D:/Github/Pmod-I2S2/Pmod-I2S2/release/${project}.zip -temp_dir D:/Github/Pmod-I2S2/Pmod-I2S2/temp/$project -force -include_local_ip_cache}
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'D:/Github/Pmod-I2S2/Pmod-I2S2/temp/Pmod-I2S2-Arty-A7-100' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'clk_wiz_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'clk_wiz_0_impl_1'...
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (D:/Github/Pmod-I2S2/Pmod-I2S2/release/Pmod-I2S2-Arty-A7-100.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 3008.895 ; gain = 19.309
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'D:/Github/Pmod-I2S2/Pmod-I2S2/temp/Pmod-I2S2-Arty-A7-35' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/Pmod-I2S2/Pmod-I2S2/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'clk_wiz_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'clk_wiz_0_impl_1'...
