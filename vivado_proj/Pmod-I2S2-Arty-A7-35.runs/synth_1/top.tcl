@@ -44,6 +44,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/buffer_2048.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/state_ram.sv
+  C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/uart_rx.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv

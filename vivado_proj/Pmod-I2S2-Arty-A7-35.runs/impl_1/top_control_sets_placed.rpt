@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu Jul 16 04:43:57 2020
+| Date         : Sat Jul 18 00:06:55 2020
 | Host         : tkrasnoperov-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    38 |
-|    Minimum number of control sets                        |    38 |
+| Total control sets                                       |    44 |
+|    Minimum number of control sets                        |    44 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   150 |
+| Unused register locations in slices containing registers |   158 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    38 |
+| Total control sets |    44 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     3 |
-| >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     3 |
-| >= 10 to < 12      |     8 |
-| >= 12 to < 14      |    10 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     6 |
+| >= 10 to < 12      |     6 |
+| >= 12 to < 14      |    11 |
 | >= 14 to < 16      |     1 |
-| >= 16              |    12 |
+| >= 16              |    15 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              42 |           28 |
+| No           | No                    | No                     |              70 |           38 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             127 |           36 |
-| Yes          | No                    | No                     |             384 |          144 |
+| No           | Yes                   | No                     |             172 |           57 |
+| Yes          | No                    | No                     |             418 |          157 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             201 |           63 |
+| Yes          | Yes                   | No                     |             206 |           58 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -75,41 +75,47 @@ Table of Contents
 +----------------------+-----------------------------------------------------+-------------------------------------------------+------------------+----------------+
 |  clk_IBUF_BUFG       | wavelet_resampler_1/state                           |                                                 |                1 |              4 |
 |  clk_IBUF_BUFG       | wavelet_resampler_1/state_counter[4]_i_2_n_0        | wavelet_resampler_1/state_counter[4]_i_1_n_0    |                2 |              5 |
-|  clk_IBUF_BUFG       | key/state_counter[4]_i_1_n_0                        |                                                 |                2 |              5 |
-|  clk_IBUF_BUFG       |                                                     | ac/tail_read_select[9]_i_1_n_0                  |                4 |              7 |
+|  clk_IBUF_BUFG       | key/state_counter[4]_i_2_n_0                        | key/state_counter[4]_i_1_n_0                    |                1 |              5 |
+|  clk_IBUF_BUFG       |                                                     | key/key_periods[9]                              |                2 |              7 |
+|  clk_IBUF_BUFG       |                                                     | ac/tail_read_select[9]_i_1_n_0                  |                3 |              7 |
+|  clk_IBUF_BUFG       | reciever/o_Rx_DV                                    |                                                 |                1 |              8 |
+|  clk_IBUF_BUFG       |                                                     | key/key_periods[2][6]_i_1_n_0                   |                3 |              8 |
 |  clk_IBUF_BUFG       |                                                     | ac/bin_write_select[8]_i_1_n_0                  |                2 |              9 |
-|  clk_IBUF_BUFG       | ac/bin_read_select[8]_i_2_n_0                       | ac/bin_read_select[8]_i_1_n_0                   |                3 |              9 |
+|  clk_IBUF_BUFG       | ac/bin_read_select[8]_i_2_n_0                       | ac/bin_read_select[8]_i_1_n_0                   |                2 |              9 |
 |  clk_IBUF_BUFG       | ac/processing_state[8]_i_1_n_0                      |                                                 |                4 |              9 |
+|  clk_IBUF_BUFG       | key/note_period[9]_i_1_n_0                          |                                                 |                4 |              9 |
 |  clk_IBUF_BUFG       | wavelet_resampler_1/sample_position[10]_i_2_n_0     | wavelet_resampler_1/sample_position[10]_i_1_n_0 |                3 |             10 |
-|  clk_IBUF_BUFG       |                                                     |                                                 |                9 |             10 |
-|  clk_IBUF_BUFG       | ac/detected_period_ready_i_1_n_0                    |                                                 |                4 |             10 |
-|  clk_IBUF_BUFG       | key/note_period[9]_i_1_n_0                          |                                                 |                4 |             10 |
-|  clk_IBUF_BUFG       | wavelet_resampler_1/x_buffer_reg_1_0_i_1_n_0        |                                                 |                5 |             11 |
+|  clk_IBUF_BUFG       | ac/detected_period_ready_i_1_n_0                    |                                                 |                2 |             10 |
 |  clk_IBUF_BUFG       | wavelet_splitter_1/curr_buffer_position[10]_i_1_n_0 |                                                 |                4 |             11 |
 |  clk_IBUF_BUFG       | wavelet_resampler_1/x_left[10]_i_1_n_0              |                                                 |               11 |             11 |
-|  clk_IBUF_BUFG       | key/note_period[9]_i_1_n_0                          | key/min_abs_diff[10]_i_1_n_0                    |                7 |             11 |
-|  m_clk/inst/axis_clk | m_i2s2/tx_data_l_shift[23]                          |                                                 |                6 |             12 |
-|  m_clk/inst/axis_clk | m_i2s2/tx_data_r                                    | m_i2s2/rx_data_l[23]_i_1_n_0                    |                6 |             12 |
-|  m_clk/inst/axis_clk | m_i2s2/tx_data_l                                    | m_i2s2/rx_data_l[23]_i_1_n_0                    |                5 |             12 |
-|  m_clk/inst/axis_clk | m_vc/unamedDSP__4_i_1_n_0                           |                                                 |                7 |             12 |
-|  m_clk/inst/axis_clk | m_vc/unamedDSP_i_1_n_0                              |                                                 |                5 |             12 |
-|  m_clk/inst/axis_clk | x_frame                                             |                                                 |                6 |             12 |
-|  clk_IBUF_BUFG       | wavelet_resampler_1/y[11]_i_1_n_0                   |                                                 |                3 |             12 |
+|  clk_IBUF_BUFG       | wavelet_resampler_1/x_buffer_reg_1_0_i_1_n_0        |                                                 |                4 |             11 |
+|  clk_IBUF_BUFG       | key/note_period[9]_i_1_n_0                          | key/min_abs_diff[10]_i_1_n_0                    |                5 |             11 |
+|  m_clk/inst/axis_clk | m_vc/unamedDSP__4_i_1_n_0                           |                                                 |                3 |             12 |
+|  m_clk/inst/axis_clk | x_frame                                             |                                                 |                4 |             12 |
+|  m_clk/inst/axis_clk | y_frame[23]_i_2_n_0                                 | y_frame[23]_i_1_n_0                             |                5 |             12 |
 |  clk_IBUF_BUFG       | wavelet_resampler_1/y_reg[11]_i_1_n_0               |                                                 |                3 |             12 |
-|  m_clk/inst/axis_clk | y_frame[23]_i_2_n_0                                 | y_frame[23]_i_1_n_0                             |                3 |             12 |
+|  m_clk/inst/axis_clk | m_i2s2/tx_data_l                                    | m_i2s2/rx_data_l[23]_i_1_n_0                    |                6 |             12 |
+|  m_clk/inst/axis_clk | m_i2s2/tx_data_r                                    | m_i2s2/rx_data_l[23]_i_1_n_0                    |                4 |             12 |
+|  m_clk/inst/axis_clk | m_i2s2/tx_data_l_shift[23]                          |                                                 |                5 |             12 |
 |  m_clk/inst/axis_clk | m_i2s2/tx_data_r_shift[23]                          |                                                 |                6 |             12 |
-|  clk_IBUF_BUFG       |                                                     | ac/tail_read_select[10]_i_1_n_0                 |                6 |             15 |
-|  clk_IBUF_BUFG       | ac/diff_norm_reg_i_1_n_0                            |                                                 |                5 |             17 |
+|  clk_IBUF_BUFG       | wavelet_resampler_1/y[11]_i_1_n_0                   |                                                 |                4 |             12 |
+|  m_clk/inst/axis_clk | m_vc/unamedDSP_i_1_n_0                              |                                                 |                4 |             12 |
+|  clk_IBUF_BUFG       |                                                     | key/key_periods[0][5]_i_1_n_0                   |                5 |             13 |
+|  clk_IBUF_BUFG       |                                                     | ac/tail_read_select[10]_i_1_n_0                 |                8 |             15 |
+|  clk_IBUF_BUFG       | ac/diff_norm_reg_i_1_n_0                            |                                                 |                7 |             17 |
+|  clk_IBUF_BUFG       |                                                     | key/key_periods[1][4]_i_1_n_0                   |               10 |             17 |
 |  clk_IBUF_BUFG       | wavelet_splitter_1/curr_period[9]_i_1_n_0           |                                                 |                8 |             21 |
-|  clk_IBUF_BUFG       | wavelet_splitter_1/wavelet_start[10]_i_1_n_0        |                                                 |                8 |             21 |
+|  clk_IBUF_BUFG       | wavelet_splitter_1/wavelet_start[10]_i_1_n_0        |                                                 |               10 |             21 |
 |  clk_IBUF_BUFG       | wavelet_resampler_1/curr_note_period[9]_i_1_n_0     |                                                 |               12 |             21 |
+|  m_clk/inst/axis_clk | m_i2s2/rx_data_r_shift                              |                                                 |                8 |             24 |
 |  m_clk/inst/axis_clk | m_i2s2/rx_data_l_shift                              |                                                 |                6 |             24 |
-|  m_clk/inst/axis_clk | m_i2s2/rx_data_r_shift                              |                                                 |                6 |             24 |
-|  m_clk/inst/axis_clk |                                                     |                                                 |               19 |             32 |
-|  clk_IBUF_BUFG       | ac/buffer_write_on_reg_n_0                          |                                                 |                9 |             33 |
-|  m_clk/inst/axis_clk | m_i2s2/rx_data_l0                                   | m_i2s2/rx_data_l[23]_i_1_n_0                    |               11 |             48 |
-|  clk_IBUF_BUFG       | ac/cv_sub[16]_i_1_n_0                               |                                                 |               19 |             68 |
-|  clk_IBUF_BUFG       | ac/min_diff                                         | ac/min_diff[71]_i_1_n_0                         |               23 |             82 |
+|  clk_IBUF_BUFG       | reciever/r_Clock_Count[31]_i_1_n_0                  |                                                 |               12 |             32 |
+|  m_clk/inst/axis_clk |                                                     |                                                 |               18 |             32 |
+|  clk_IBUF_BUFG       | ac/buffer_write_on_reg_n_0                          |                                                 |               11 |             33 |
+|  clk_IBUF_BUFG       |                                                     |                                                 |               20 |             38 |
+|  m_clk/inst/axis_clk | m_i2s2/rx_data_l0                                   | m_i2s2/rx_data_l[23]_i_1_n_0                    |                9 |             48 |
+|  clk_IBUF_BUFG       | ac/cv_sub[16]_i_1_n_0                               |                                                 |               23 |             68 |
+|  clk_IBUF_BUFG       | ac/min_diff                                         | ac/min_diff[71]_i_1_n_0                         |               21 |             82 |
 |  clk_IBUF_BUFG       |                                                     | ac/cv_new[47]_i_1_n_0                           |               24 |             96 |
 +----------------------+-----------------------------------------------------+-------------------------------------------------+------------------+----------------+
 

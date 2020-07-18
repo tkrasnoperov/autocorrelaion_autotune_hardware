@@ -32,7 +32,10 @@ module top #(
     output wire rx_mclk,
     output wire rx_lrck,
     output wire rx_sclk,
-    input  wire rx_data
+    input  wire rx_data,
+    
+    input wire UART_RX,
+    output wire [3:0] led
 );
     wire axis_clk;
     
@@ -122,6 +125,22 @@ module top #(
     
         // ===============================================================================
 
+    // Key controller
+    wire key_code_ready;
+    wire [7:0] key_code_wire;
+    reg [7:0] key_code = 0;
+    uart_rx reciever(
+        .i_Clock(clk),
+        .i_Rx_Serial(UART_RX),
+        .o_Rx_DV(key_code_ready),
+        .o_Rx_Byte(key_code_wire)
+    );
+    always @(posedge clk) begin
+        if (key_code_ready == 1) begin
+            key_code <= key_code_wire;
+        end
+    end
+    assign led = key_code[3:0];
     
     
     // AC period detection
@@ -163,6 +182,7 @@ module top #(
         
         .wavelet_ready(wavelet_ready),
         .wavelet_period(wavelet_period_wire),
+        .key_code(key_code),
         
         .note_ready(note_ready),
 //        .note_period(y_frame_wire[10:0])
