@@ -4,7 +4,9 @@ module music_key(
     input wire CLK100MHZ,
     input wire wavelet_ready,
     input wire [10:0] wavelet_period,
-    input wire [7:0] key_code,
+    input wire [4:0] key_code,
+    input wire [4:0] octave_code,
+    input wire [4:0] dry_wet_code,
     output reg note_ready,
     output reg [10:0] note_period
     );
@@ -92,54 +94,54 @@ module music_key(
     
     always @(posedge CLK100MHZ) begin
         // MAJOR: C, CD, D, DE, E, F, FG, G, GA, 
-        if (key_code == 8'b00000000)
+        if (key_code == 5'b00000000)
             key_periods <= c_major_key_periods;
-        else if (key_code == 8'b00000001)
+        else if (key_code == 5'b00001)
             key_periods <= cd_major_key_periods;
-        else if (key_code == 8'b00000010)
+        else if (key_code == 5'b00010)
             key_periods <= d_major_key_periods;
-        else if (key_code == 8'b00000011)
+        else if (key_code == 5'b00011)
             key_periods <= de_major_key_periods;
-        else if (key_code == 8'b00000100)
+        else if (key_code == 5'b00100)
             key_periods <= e_major_key_periods;
-        else if (key_code == 8'b00000101)
+        else if (key_code == 5'b00101)
             key_periods <= f_major_key_periods;
-        else if (key_code == 8'b00000110)
+        else if (key_code == 5'b00110)
             key_periods <= fg_major_key_periods;
-        else if (key_code == 8'b00000111)
+        else if (key_code == 5'b00111)
             key_periods <= g_major_key_periods;
-        else if (key_code == 8'b00001000)
+        else if (key_code == 5'b01000)
             key_periods <= ga_major_key_periods;
-        else if (key_code == 8'b00001001)
+        else if (key_code == 5'b01001)
             key_periods <= a_major_key_periods;
-        else if (key_code == 8'b00001010)
+        else if (key_code == 5'b01010)
             key_periods <= ab_major_key_periods;
-        else if (key_code == 8'b00001011)
+        else if (key_code == 5'b01011)
             key_periods <= b_major_key_periods;
         // MINOR 
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10000)
             key_periods <= c_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10001)
             key_periods <= cd_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10010)
             key_periods <= d_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10011)
             key_periods <= de_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10100)
             key_periods <= e_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10101)
             key_periods <= f_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10110)
             key_periods <= fg_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b10111)
             key_periods <= g_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b11000)
             key_periods <= ga_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b11001)
             key_periods <= a_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b11010)
             key_periods <= ab_minor_key_periods;
-        else if (key_code == 8'b00010000)
+        else if (key_code == 5'b11011)
             key_periods <= b_minor_key_periods;
         // DEFAULT
         else
@@ -148,12 +150,15 @@ module music_key(
     
     reg [10:0] processing_state = 0;
     
-    var reg[10:0] note_idx;
+    var reg [10:0] note_idx;
     var reg [10:0] diff;
     var reg [10:0] abs_diff;
     reg [10:0] min_abs_diff = {11{1'b1}};
     
-    typedef enum logic[2:0] {IDLE, COMPUTING, CLEANUP} state_t;
+    var reg [10:0] jump;
+    var reg [10:0] dry_wet_diff;
+    
+    typedef enum logic[2:0] {IDLE, COMPUTING, OCTAVE_PEDAL, DRY_WET, CLEANUP} state_t;
     state_t state = IDLE;
     reg [10:0] state_counter = 0;
     
@@ -180,9 +185,37 @@ module music_key(
                     state_counter <= state_counter + 1;
                 end
                 else begin
-                    state <= CLEANUP;
+                    state <= OCTAVE_PEDAL;
                     state_counter <= 0;
                 end
+            end
+            
+            OCTAVE_PEDAL:
+            begin
+                case (octave_code)
+                    5'b00000: note_period <= note_period;
+                    5'b00001: note_period <= note_period >> 1;
+                    5'b00010: note_period <= note_period >> 2;                            
+                    5'b00011: note_period <= note_period << 1;                            
+                    5'b00100: note_period <= note_period << 2;
+                    default: note_period <= note_period;
+                endcase;
+                state <= DRY_WET;
+            end
+            
+            DRY_WET:
+            begin
+                if (note_period < wavelet_period) begin
+                    jump = wavelet_period - note_period;
+                    dry_wet_diff = (jump * dry_wet_code) >> 4;
+                    note_period <= note_period + dry_wet_diff;
+                end
+                else if (wavelet_period < note_period) begin
+                    jump = note_period - wavelet_period;
+                    dry_wet_diff = (jump * dry_wet_code) >> 4;
+                    note_period <= note_period - dry_wet_diff;             
+                end
+                state <= CLEANUP;
             end
             
             CLEANUP:

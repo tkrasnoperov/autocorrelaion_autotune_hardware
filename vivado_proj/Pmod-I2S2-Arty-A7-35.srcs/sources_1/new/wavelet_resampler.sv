@@ -39,7 +39,7 @@ module wavelet_resampler(
     var reg signed [24:0] y_add;
     reg [24:0] y_reg;
     
-    typedef enum logic[4:0] {IDLE, UPDATING, INTERPOLATE_1, INTERPOLATE_2, INTERPOLATE_3, INTERPOLATE_4, INTERPOLATE_5, INTERPOLATE_6, WAIT_0, WAIT_1, WAIT_2, WAIT_3, CLEANUP} state_t;
+    typedef enum logic[4:0] {IDLE, UPDATING, INTERPOLATE_1, INTERPOLATE_2, INTERPOLATE_3, INTERPOLATE_4, INTERPOLATE_5, INTERPOLATE_6, WAIT_0, WAIT_1, WAIT_2, WAIT_3, WAIT_4, CLEANUP} state_t;
     state_t state = IDLE;
     reg [10:0] state_counter = 0;
     always @(posedge CLK100MHZ) begin
@@ -69,7 +69,7 @@ module wavelet_resampler(
                 resolution_position <= sample_position * curr_wavelet_period;
                 state <= WAIT_0;
             end
-            
+       
             WAIT_0:
             begin
                 if (state_counter < 10) begin

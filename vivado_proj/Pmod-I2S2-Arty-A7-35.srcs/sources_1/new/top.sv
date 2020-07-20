@@ -34,8 +34,11 @@ module top #(
     output wire rx_sclk,
     input  wire rx_data,
     
-    input wire UART_RX,
-    output wire [3:0] led
+    input wire UART_RX_USB,
+    input wire UART_RX_SDA,
+    output wire [3:0] led,
+    output wire [3:0] led_b,
+    output wire [3:0] led_r
 );
     wire axis_clk;
     
@@ -50,6 +53,12 @@ module top #(
     wire axis_rx_last;
 
 	wire resetn = (reset == RESET_POLARITY) ? 1'b0 : 1'b1;
+	
+    var reg [23:0] x_frame_unsigned = 0;
+    reg [23:0] x_frame = 0;
+    reg [23:0] y_frame = 0;
+    wire [23:0] y_frame_wire;
+    reg frame_ready = 0;  
 	
     clk_wiz_0 m_clk (
         .clk_in1(clk),
@@ -86,7 +95,6 @@ module top #(
 		.DATA_WIDTH(24)
 	) m_vc (
         .clk(axis_clk),
-        .sw(sw),
         
         .s_axis_data(axis_rx_data),
         .s_axis_valid(axis_rx_valid),
@@ -99,11 +107,7 @@ module top #(
         .m_axis_last(axis_tx_last)
     );
     
-    var reg [23:0] x_frame_unsigned = 0;
-    reg [23:0] x_frame = 0;
-    reg [23:0] y_frame = 0;
-    wire [23:0] y_frame_wire;
-    reg frame_ready = 0;    
+  
     always@(posedge axis_clk) begin
         if (resetn == 1'b0) begin
 //            tx_data_r <= 32'b0;
@@ -123,24 +127,28 @@ module top #(
         end
     end
     
+    wire UART_RX;
+    assign UART_RX = sw[0] ? UART_RX_USB : UART_RX_SDA;
+    
         // ===============================================================================
 
     // Key controller
-    wire key_code_ready;
-    wire [7:0] key_code_wire;
-    reg [7:0] key_code = 0;
-    uart_rx reciever(
-        .i_Clock(clk),
-        .i_Rx_Serial(UART_RX),
-        .o_Rx_DV(key_code_ready),
-        .o_Rx_Byte(key_code_wire)
+    wire [4:0] key_code;
+    wire [4:0] octave_code;
+    wire [4:0] dry_wet_code;
+    settings_controller settings_controller_1(
+        .CLK100MHZ(clk),
+        .UART_RX(UART_RX),
+        
+        .key_code(key_code),
+        .octave_code(octave_code),
+        .dry_wet_code(dry_wet_code),
+        
+        .key_led(led),
+        .major_minor_led(led_b[0]),
+        .octave_led(led_b[3:1]),
+        .dry_wet_led(led_r)
     );
-    always @(posedge clk) begin
-        if (key_code_ready == 1) begin
-            key_code <= key_code_wire;
-        end
-    end
-    assign led = key_code[3:0];
     
     
     // AC period detection
@@ -183,6 +191,8 @@ module top #(
         .wavelet_ready(wavelet_ready),
         .wavelet_period(wavelet_period_wire),
         .key_code(key_code),
+        .octave_code(octave_code),
+        .dry_wet_code(dry_wet_code),
         
         .note_ready(note_ready),
 //        .note_period(y_frame_wire[10:0])
@@ -200,15 +210,5 @@ module top #(
         
         .y(y_frame_wire)    
     );        
-       
-//    reg [23:0] x_frame = 0;
-//    reg [23:0] y_frame = 0;
-//    reg prev_state = 0;
-//    always @(posedge clk) begin
-//        if ((axis_tx_ready == 1) && (prev_state == 0)) begin
-//            y_frame <= axis_tx_data;
-//        end
-//        prev_state <= axis_tx_ready;
-//    end
-    
+
 endmodule

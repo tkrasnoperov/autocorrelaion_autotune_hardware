@@ -38,16 +38,18 @@ set_property ip_output_repo c:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/
 set_property ip_cache_permissions {read write} [current_project]
 set_property generic {NUMBER_OF_SWITCHES=4 RESET_POLARITY=0} [current_fileset]
 read_verilog -library xil_defaultlib -sv {
+  C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_i2s2.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_volume_controller.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/buffer_2048.sv
+  C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/key_controller.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv
+  C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/settings_controller.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/state_ram.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/uart_rx.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv
   C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv
-  C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv
 }
 read_ip -quiet C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]

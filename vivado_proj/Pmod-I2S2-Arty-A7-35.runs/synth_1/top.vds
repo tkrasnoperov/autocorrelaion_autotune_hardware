@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Sat Jul 18 00:04:24 2020
-# Process ID: 7192
+# Start of session at: Sun Jul 19 02:57:07 2020
+# Process ID: 3456
 # Current directory: C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.runs/synth_1/top.vds
@@ -24,23 +24,24 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5200 
+INFO: Helper process launched with PID 1512 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 848.336 ; gain = 238.711
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 848.449 ; gain = 237.723
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:20]
 	Parameter NUMBER_OF_SWITCHES bound to: 4 - type: integer 
 	Parameter RESET_POLARITY bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.runs/synth_1/.Xil/Vivado-7192-tkrasnoperov-PC/realtime/clk_wiz_0_stub.vhdl:13]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.runs/synth_1/.Xil/Vivado-3456-tkrasnoperov-PC/realtime/clk_wiz_0_stub.vhdl:13]
 INFO: [Synth 8-6157] synthesizing module 'axis_i2s2' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_i2s2.sv:24]
 	Parameter EOF_COUNT bound to: 9'b111000111 
 INFO: [Synth 8-6155] done synthesizing module 'axis_i2s2' (1#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_i2s2.sv:24]
-WARNING: [Synth 8-689] width (24) of port connection 'rx_axis_m_data' does not match port width (32) of module 'axis_i2s2' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:69]
+WARNING: [Synth 8-689] width (24) of port connection 'rx_axis_m_data' does not match port width (32) of module 'axis_i2s2' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:78]
 INFO: [Synth 8-6157] synthesizing module 'axis_volume_controller' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_volume_controller.sv:21]
 	Parameter SWITCH_WIDTH bound to: 4 - type: integer 
 	Parameter DATA_WIDTH bound to: 24 - type: integer 
 	Parameter MULTIPLIER_WIDTH bound to: 24 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'axis_volume_controller' (2#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_volume_controller.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'settings_controller' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/settings_controller.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/uart_rx.sv:15]
 	Parameter CLKS_PER_BIT bound to: 10417 - type: integer 
 	Parameter s_IDLE bound to: 3'b000 
@@ -50,6 +51,8 @@ INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/tkrasnoperov/Deskto
 	Parameter s_CLEANUP bound to: 3'b100 
 	Parameter s_CLEANUP_2 bound to: 3'b101 
 INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (3#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/uart_rx.sv:15]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/settings_controller.sv:32]
+INFO: [Synth 8-6155] done synthesizing module 'settings_controller' (4#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/settings_controller.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'autocorrelation_spectrum' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:3]
 	Parameter MIN_PERIOD bound to: 100 - type: integer 
 	Parameter N_PERIODS bound to: 400 - type: integer 
@@ -58,14 +61,14 @@ INFO: [Synth 8-6157] synthesizing module 'autocorrelation_spectrum' [C:/Users/tk
 	Parameter BUFFER_READ_START bound to: 2 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'buffer_2048' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/buffer_2048.sv:3]
 	Parameter N_POINTS bound to: 2048 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'buffer_2048' (4#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/buffer_2048.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'buffer_2048' (5#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/buffer_2048.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'state_ram' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/state_ram.sv:3]
 	Parameter N_PERIODS bound to: 400 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'state_ram' (5#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/state_ram.sv:3]
-INFO: [Synth 8-6155] done synthesizing module 'autocorrelation_spectrum' (6#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'state_ram' (6#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/state_ram.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'autocorrelation_spectrum' (7#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'wavelet_splitter' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv:3]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'wavelet_splitter' (7#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'wavelet_splitter' (8#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_splitter.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'music_key' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:3]
 	Parameter N_KEY_NOTES bound to: 18 - type: integer 
 	Parameter c_major_key_periods bound to: 198'b001111110010011100001000110010000001011001010010101000100100101100001000010110001111110000011100001000110010000001011001000010101000000100101100001000010100001111110000011100000000110010000001011001 
@@ -92,10 +95,12 @@ INFO: [Synth 8-6157] synthesizing module 'music_key' [C:/Users/tkrasnoperov/Desk
 	Parameter a_minor_key_periods bound to: 198'b010000101110011111100100111000010001100100000010110010100101010001001001011000010000101100011111100000111000010001100100000010110010000101010000001001011000010000101000011111100000111000000001100100 
 	Parameter ab_minor_key_periods bound to: 198'b001111110010011101110000110101000001011110100010101000100100111110001000110110001111110000011101110000110101000001011110100010101000000100111110001000110100001111110000011101110000110101000001011110 
 	Parameter b_minor_key_periods bound to: 198'b010000101110011101110000111000001001100100000010110010100100111110001001011000010000101100011101110000111000000001100100000010110010000100111110001001011000010000101000011101110000111000000001100100 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:161]
-WARNING: [Synth 8-6014] Unused sequential element diff_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:174]
-WARNING: [Synth 8-6014] Unused sequential element abs_diff_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:175]
-INFO: [Synth 8-6155] done synthesizing module 'music_key' (8#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:166]
+WARNING: [Synth 8-6014] Unused sequential element diff_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:179]
+WARNING: [Synth 8-6014] Unused sequential element abs_diff_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:180]
+WARNING: [Synth 8-6014] Unused sequential element jump_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:209]
+WARNING: [Synth 8-6014] Unused sequential element dry_wet_diff_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:210]
+INFO: [Synth 8-6155] done synthesizing module 'music_key' (9#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'wavelet_resampler' [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:3]
 	Parameter N_BUFFER_POINTS bound to: 2048 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:46]
@@ -103,15 +108,18 @@ WARNING: [Synth 8-6014] Unused sequential element delta_x_signed_reg was removed
 WARNING: [Synth 8-6014] Unused sequential element curr_note_period_signed_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:135]
 WARNING: [Synth 8-6014] Unused sequential element y_left_signed_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:136]
 WARNING: [Synth 8-6014] Unused sequential element y_add_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:137]
-INFO: [Synth 8-6155] done synthesizing module 'wavelet_resampler' (9#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:3]
-WARNING: [Synth 8-6014] Unused sequential element x_frame_unsigned_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:116]
-INFO: [Synth 8-6155] done synthesizing module 'top' (10#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'wavelet_resampler' (10#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:3]
+WARNING: [Synth 8-6014] Unused sequential element x_frame_unsigned_reg was removed.  [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'top' (11#1) [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/top.sv:20]
 WARNING: [Synth 8-3331] design state_ram has unconnected port read_addr[10]
 WARNING: [Synth 8-3331] design state_ram has unconnected port read_addr[9]
 WARNING: [Synth 8-3331] design state_ram has unconnected port write_addr[10]
 WARNING: [Synth 8-3331] design state_ram has unconnected port write_addr[9]
+WARNING: [Synth 8-3331] design top has unconnected port sw[3]
+WARNING: [Synth 8-3331] design top has unconnected port sw[2]
+WARNING: [Synth 8-3331] design top has unconnected port sw[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 914.133 ; gain = 304.508
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 914.184 ; gain = 303.457
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -124,12 +132,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 928.809 ; gain = 319.184
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 930.777 ; gain = 320.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 928.809 ; gain = 319.184
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 930.777 ; gain = 320.051
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.103 . Memory (MB): peak = 928.809 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 930.777 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -142,20 +150,20 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1045.555 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1047.773 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1045.555 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1047.773 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1045.555 ; gain = 435.930
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1047.773 ; gain = 437.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1045.555 ; gain = 435.930
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1047.773 ; gain = 437.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -164,15 +172,14 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/t
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for m_clk. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1045.555 ; gain = 435.930
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1047.773 ; gain = 437.047
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_volume_controller.sv:76]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 6 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/axis_volume_controller.sv:77]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:218]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:217]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:214]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:213]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 3 [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/autocorrelation_spectrum.sv:246]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/music_key.sv:208]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:137]
 WARNING: [Synth 8-3936] Found unconnected internal register 'y_reg_reg' and it is trimmed from '25' to '24' bits. [C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.srcs/sources_1/new/wavelet_resampler.sv:138]
 INFO: [Synth 8-5546] ROM "x_buffer" won't be mapped to RAM because it is too sparse
@@ -186,7 +193,7 @@ INFO: [Synth 8-5546] ROM "y_reg" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "y" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3971] The signal "wavelet_resampler:/x_buffer_reg" was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1045.555 ; gain = 435.930
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1047.773 ; gain = 437.047
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -200,8 +207,8 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     72 Bit       Adders := 1     
-	   3 Input     48 Bit       Adders := 3     
 	   4 Input     48 Bit       Adders := 2     
+	   3 Input     48 Bit       Adders := 1     
 	   2 Input     37 Bit       Adders := 2     
 	   2 Input     32 Bit       Adders := 2     
 	   3 Input     25 Bit       Adders := 1     
@@ -209,7 +216,7 @@ Detailed RTL Component Info :
 	   2 Input     24 Bit       Adders := 2     
 	   2 Input     12 Bit       Adders := 2     
 	   2 Input     11 Bit       Adders := 21    
-	   3 Input     11 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 4     
 	   2 Input      9 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
@@ -219,13 +226,12 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 5     
 	               24 Bit    Registers := 13    
 	               19 Bit    Registers := 1     
-	               18 Bit    Registers := 6     
-	               15 Bit    Registers := 3     
+	               18 Bit    Registers := 2     
+	               15 Bit    Registers := 1     
 	               11 Bit    Registers := 44    
-	                9 Bit    Registers := 7     
-	                8 Bit    Registers := 2     
-	                5 Bit    Registers := 1     
-	                4 Bit    Registers := 3     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 4     
 	                3 Bit    Registers := 5     
 	                1 Bit    Registers := 16    
 +---RAMs : 
@@ -243,43 +249,46 @@ Detailed RTL Component Info :
 	   2 Input     24 Bit        Muxes := 4     
 	   2 Input     11 Bit        Muxes := 24    
 	   3 Input     11 Bit        Muxes := 2     
-	   4 Input     11 Bit        Muxes := 1     
+	   6 Input     11 Bit        Muxes := 2     
 	  14 Input     11 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 3     
+	   2 Input     10 Bit        Muxes := 2     
 	   4 Input     10 Bit        Muxes := 1     
-	  12 Input     10 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 15    
+	  22 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 8     
 	   5 Input      9 Bit        Muxes := 3     
-	   8 Input      9 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
 	   7 Input      9 Bit        Muxes := 1     
-	  11 Input      9 Bit        Muxes := 1     
 	   4 Input      9 Bit        Muxes := 3     
-	  13 Input      9 Bit        Muxes := 2     
-	  12 Input      9 Bit        Muxes := 2     
-	  10 Input      9 Bit        Muxes := 1     
+	  23 Input      9 Bit        Muxes := 1     
+	  22 Input      9 Bit        Muxes := 3     
+	  24 Input      9 Bit        Muxes := 1     
 	   7 Input      8 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 15    
+	   2 Input      8 Bit        Muxes := 8     
 	   5 Input      8 Bit        Muxes := 3     
-	  13 Input      8 Bit        Muxes := 3     
-	  11 Input      8 Bit        Muxes := 1     
+	  22 Input      8 Bit        Muxes := 4     
+	   8 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 3     
-	  12 Input      8 Bit        Muxes := 2     
-	  10 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 6     
+	  23 Input      8 Bit        Muxes := 1     
+	  24 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 3     
 	   5 Input      7 Bit        Muxes := 2     
-	  13 Input      7 Bit        Muxes := 2     
-	  11 Input      7 Bit        Muxes := 1     
+	  22 Input      7 Bit        Muxes := 1     
+	  24 Input      7 Bit        Muxes := 1     
 	   4 Input      7 Bit        Muxes := 1     
+	  23 Input      7 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 4     
-	   4 Input      3 Bit        Muxes := 2     
-	  13 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   4 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	  22 Input      3 Bit        Muxes := 1     
+	  24 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 40    
 	   4 Input      1 Bit        Muxes := 10    
 	   7 Input      1 Bit        Muxes := 3     
-	   6 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 1     
 	  14 Input      1 Bit        Muxes := 14    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -294,8 +303,9 @@ Detailed RTL Component Info :
 	   2 Input     24 Bit       Adders := 2     
 +---Registers : 
 	               24 Bit    Registers := 2     
-	                8 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
 Module axis_i2s2 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -315,14 +325,8 @@ Detailed RTL Component Info :
 	   4 Input      1 Bit        Muxes := 1     
 Module axis_volume_controller 
 Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     48 Bit       Adders := 2     
 +---Registers : 
 	               48 Bit    Registers := 2     
-	               18 Bit    Registers := 4     
-	               15 Bit    Registers := 2     
-	                9 Bit    Registers := 6     
-	                4 Bit    Registers := 3     
 	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input     48 Bit        Muxes := 3     
@@ -349,6 +353,13 @@ Detailed RTL Component Info :
 	   7 Input      1 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 1     
+Module settings_controller 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 3     
 Module buffer_2048 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -404,7 +415,7 @@ Detailed RTL Component Info :
 Module music_key 
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     11 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 4     
 	   2 Input     11 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
@@ -412,39 +423,41 @@ Detailed RTL Component Info :
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
+	   6 Input     11 Bit        Muxes := 2     
 	   2 Input     11 Bit        Muxes := 20    
-	   4 Input     11 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
 	   4 Input     10 Bit        Muxes := 1     
-	  12 Input     10 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 14    
+	  22 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 7     
 	   5 Input      9 Bit        Muxes := 3     
-	   8 Input      9 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
 	   7 Input      9 Bit        Muxes := 1     
-	  11 Input      9 Bit        Muxes := 1     
 	   4 Input      9 Bit        Muxes := 3     
-	  13 Input      9 Bit        Muxes := 2     
-	  12 Input      9 Bit        Muxes := 2     
-	  10 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 14    
+	  23 Input      9 Bit        Muxes := 1     
+	  22 Input      9 Bit        Muxes := 3     
+	  24 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 7     
 	   5 Input      8 Bit        Muxes := 3     
-	  13 Input      8 Bit        Muxes := 3     
+	  22 Input      8 Bit        Muxes := 4     
 	   7 Input      8 Bit        Muxes := 1     
-	  11 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 3     
-	  12 Input      8 Bit        Muxes := 2     
-	  10 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 6     
+	  23 Input      8 Bit        Muxes := 1     
+	  24 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 3     
 	   5 Input      7 Bit        Muxes := 2     
-	  13 Input      7 Bit        Muxes := 2     
-	  11 Input      7 Bit        Muxes := 1     
+	  22 Input      7 Bit        Muxes := 1     
+	  24 Input      7 Bit        Muxes := 1     
 	   4 Input      7 Bit        Muxes := 1     
+	  23 Input      7 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 1     
-	  13 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 7     
-	   4 Input      1 Bit        Muxes := 4     
+	   6 Input      3 Bit        Muxes := 1     
+	  22 Input      3 Bit        Muxes := 1     
+	  24 Input      3 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 1     
 Module wavelet_resampler 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -593,16 +606,13 @@ INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instan
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (key/\key_periods_reg[0][10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (key/\state_counter_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\x_frame_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (key/\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_resampler_1/\state_reg[4] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_r_shift_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_l_shift_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (ac/\detected_period_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (key/\note_period_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_r_shift_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_l_shift_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_splitter_1/\curr_period_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_resampler_1/\curr_note_period_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_r_shift_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (m_i2s2/\tx_data_l_shift_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_splitter_1/\wavelet_period_reg[10] )
@@ -723,9 +733,9 @@ WARNING: [Synth 8-3332] Sequential element (av_add_reg[43]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (av_add_reg[42]) is unused and will be removed from module autocorrelation_spectrum.
 WARNING: [Synth 8-3332] Sequential element (av_add_reg[41]) is unused and will be removed from module autocorrelation_spectrum.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_resampler_1/\state_counter_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wavelet_resampler_1/\state_counter_reg[7] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1045.555 ; gain = 435.930
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1047.773 ; gain = 437.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -756,7 +766,7 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 1095.262 ; gain = 485.637
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 1087.719 ; gain = 476.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -802,7 +812,7 @@ INFO: [Synth 8-7053] The timing for the instance wavelet_resampler_1/x_buffer_re
 INFO: [Synth 8-7053] The timing for the instance wavelet_resampler_1/x_buffer_reg_2_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7053] The timing for the instance wavelet_resampler_1/x_buffer_reg_2_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1129.758 ; gain = 520.133
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1121.457 ; gain = 510.730
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -820,13 +830,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1134.898 ; gain = 525.273
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1129.082 ; gain = 518.355
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1134.898 ; gain = 525.273
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1129.082 ; gain = 518.355
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -845,7 +855,22 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1134.898 ; gain = 525.273
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1129.082 ; gain = 518.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+-------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+-------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|axis_i2s2   | rx_data_l_shift_reg[13] | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|axis_i2s2   | rx_data_r_shift_reg[13] | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
++------------+-------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -863,75 +888,75 @@ Report Cell Usage:
 |      |Cell             |Count |
 +------+-----------------+------+
 |1     |clk_wiz_0_bbox_0 |     1|
-|2     |CARRY4           |   574|
+|2     |CARRY4           |   577|
 |3     |DSP48E1          |     6|
 |4     |DSP48E1_1        |     4|
-|5     |DSP48E1_2        |     4|
-|6     |DSP48E1_3        |     4|
-|7     |DSP48E1_5        |     1|
-|8     |DSP48E1_6        |     2|
-|9     |DSP48E1_8        |     2|
-|10    |LUT1             |   117|
-|11    |LUT2             |   938|
-|12    |LUT3             |  1025|
-|13    |LUT4             |   434|
-|14    |LUT5             |   117|
-|15    |LUT6             |   224|
-|16    |MUXF7            |    10|
-|17    |MUXF8            |     3|
-|18    |RAMB18E1         |     3|
-|19    |RAMB18E1_1       |     1|
-|20    |RAMB36E1         |     3|
-|21    |RAMB36E1_1       |     2|
-|22    |RAMB36E1_2       |     6|
-|23    |FDRE             |   782|
-|24    |FDSE             |    84|
-|25    |IBUF             |     7|
-|26    |OBUF             |    11|
+|5     |DSP48E1_3        |     1|
+|6     |DSP48E1_4        |     2|
+|7     |DSP48E1_6        |     2|
+|8     |LUT1             |   113|
+|9     |LUT2             |   879|
+|10    |LUT3             |   880|
+|11    |LUT4             |   385|
+|12    |LUT5             |   277|
+|13    |LUT6             |   273|
+|14    |MUXF7            |    10|
+|15    |MUXF8            |     3|
+|16    |RAMB18E1         |     3|
+|17    |RAMB18E1_1       |     1|
+|18    |RAMB36E1         |     3|
+|19    |RAMB36E1_1       |     2|
+|20    |RAMB36E1_2       |     6|
+|21    |SRL16E           |     2|
+|22    |FDRE             |   765|
+|23    |FDSE             |    86|
+|24    |IBUF             |     5|
+|25    |OBUF             |    19|
 +------+-----------------+------+
 
 Report Instance Areas: 
 +------+--------------------------+-------------------------+------+
 |      |Instance                  |Module                   |Cells |
 +------+--------------------------+-------------------------+------+
-|1     |top                       |                         |  4365|
-|2     |  m_i2s2                  |axis_i2s2                |   236|
-|3     |  m_vc                    |axis_volume_controller   |   271|
-|4     |  reciever                |uart_rx                  |   129|
-|5     |  ac                      |autocorrelation_spectrum |  1000|
-|6     |    head_buffer           |buffer_2048__1           |    42|
-|7     |    pivot_buffer          |buffer_2048__2           |    31|
-|8     |    tail_buffer           |buffer_2048              |    42|
-|9     |    autovariance_states_1 |state_ram__1             |     1|
-|10    |    covariance_states_1   |state_ram                |     1|
-|11    |  wavelet_splitter_1      |wavelet_splitter         |    92|
-|12    |  key                     |music_key                |   234|
-|13    |  wavelet_resampler_1     |wavelet_resampler        |  2345|
+|1     |top                       |                         |  4305|
+|2     |  m_i2s2                  |axis_i2s2                |   183|
+|3     |  m_vc                    |axis_volume_controller   |   103|
+|4     |  settings_controller_1   |settings_controller      |   145|
+|5     |    reciever              |uart_rx                  |   127|
+|6     |  ac                      |autocorrelation_spectrum |  1000|
+|7     |    head_buffer           |buffer_2048__1           |    42|
+|8     |    pivot_buffer          |buffer_2048__2           |    31|
+|9     |    tail_buffer           |buffer_2048              |    42|
+|10    |    autovariance_states_1 |state_ram__1             |     1|
+|11    |    covariance_states_1   |state_ram                |     1|
+|12    |  wavelet_splitter_1      |wavelet_splitter         |    92|
+|13    |  key                     |music_key                |   342|
+|14    |  wavelet_resampler_1     |wavelet_resampler        |  2383|
 +------+--------------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1134.898 ; gain = 525.273
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1129.082 ; gain = 518.355
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 156 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:01:00 . Memory (MB): peak = 1134.898 ; gain = 408.527
-Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1134.898 ; gain = 525.273
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:00:58 . Memory (MB): peak = 1129.082 ; gain = 401.359
+Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:01:02 . Memory (MB): peak = 1129.082 ; gain = 518.355
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1146.957 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 625 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 1141.137 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 620 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1146.957 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1141.137 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-216 Infos, 115 Warnings, 0 Critical Warnings and 0 Errors encountered.
+215 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1146.957 ; gain = 802.402
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1146.957 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:01:10 . Memory (MB): peak = 1141.137 ; gain = 796.410
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1141.137 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/tkrasnoperov/Desktop/pmod_demo/vivado_proj/Pmod-I2S2-Arty-A7-35.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jul 18 00:05:42 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 19 02:58:25 2020...

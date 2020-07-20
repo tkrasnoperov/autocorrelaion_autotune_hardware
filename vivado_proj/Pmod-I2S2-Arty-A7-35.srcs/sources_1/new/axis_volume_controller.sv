@@ -23,7 +23,6 @@ module axis_volume_controller #(
     parameter DATA_WIDTH = 24
 ) (
     input wire clk,
-    input wire [SWITCH_WIDTH-1:0] sw,
     
     //AXIS SLAVE INTERFACE
     input  wire [DATA_WIDTH-1:0] s_axis_data,
@@ -55,17 +54,6 @@ module axis_volume_controller #(
     reg s_new_packet_r = 1'b0;
     
     always@(posedge clk) begin
-        sw_sync_r[2] <= sw_sync_r[1];
-        sw_sync_r[1] <= sw_sync_r[0];
-        sw_sync_r[0] <= sw;
-        
-        
-//        if (&sw_sync == 1'b1)
-//            multiplier <= {1'b1, {MULTIPLIER_WIDTH{1'b0}}};
-//        else
-            // multiplier <= {1'b0, sw, {MULTIPLIER_WIDTH-SWITCH_WIDTH{1'b0}}} + 1;
-            multiplier <= {sw_sync,{MULTIPLIER_WIDTH{1'b0}}} / {SWITCH_WIDTH{1'b1}};
-            
         s_new_packet_r <= s_new_packet;
     end
     
@@ -73,8 +61,8 @@ module axis_volume_controller #(
         if (s_new_word == 1'b1) // sign extend and register AXIS slave data
             data[s_select] <= {{MULTIPLIER_WIDTH{s_axis_data[DATA_WIDTH-1]}}, s_axis_data};
         else if (s_new_packet_r == 1'b1) begin
-            data[0] <= $signed(data[0]) * multiplier; // core volume control algorithm, infers a DSP48 slice
-            data[1] <= $signed(data[1]) * multiplier;
+            data[0] <= $signed(data[0]) * (2 ** 23); // core volume control algorithm, infers a DSP48 slice
+            data[1] <= $signed(data[1]) * (2 ** 23);
         end
         
     always@(posedge clk)
