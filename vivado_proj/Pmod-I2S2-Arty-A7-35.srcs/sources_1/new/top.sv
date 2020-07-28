@@ -122,8 +122,8 @@ module top #(
             x_frame_unsigned = axis_tx_data + (2 ** 23);
             x_frame <= x_frame_unsigned >> 12;
 						x_frame_dry <= x_frame_unsigned >> 12;
-            y_frame_wet <= (y_frame_wire << 12) + (2 ** 23);
-						y_frame <= (dry_wet_code * y_frame_wet + (16 - dry_wet_code) * x_frame_dry) >> 4;
+						y_frame_wet <= (dry_wet_code[4:0] * y_frame_wet + (16 - dry_wet_code[4:0]) * x_frame_dry) >> 4;
+            y_frame <= (y_frame_wet << 12) + (2 ** 23);
             frame_ready <= 1;
         end
         else begin
