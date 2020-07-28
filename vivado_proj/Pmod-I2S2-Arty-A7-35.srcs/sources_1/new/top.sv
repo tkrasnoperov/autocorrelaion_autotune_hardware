@@ -109,8 +109,13 @@ module top #(
 
   	reg [23:0] x_frame_dry = 0;
 		reg [23:0] y_frame_wet = 0;
+
+		wire [4:0] key_code;
+		wire [4:0] octave_code;
 		wire [4:0] dry_wet_code;
-    always@(posedge axis_clk) begin
+		wire [4:0] hardness_code;
+
+		always@(posedge axis_clk) begin
         if (resetn == 1'b0) begin
 //            tx_data_r <= 32'b0;
 //            tx_data_l <= 32'b0;
@@ -137,8 +142,6 @@ module top #(
         // ===============================================================================
 
     // Key controller
-    wire [4:0] key_code;
-    wire [4:0] octave_code;
 
     settings_controller settings_controller_1(
         .CLK100MHZ(clk),
@@ -196,7 +199,7 @@ module top #(
         .wavelet_period(wavelet_period_wire),
         .key_code(key_code),
         .octave_code(octave_code),
-        // .dry_wet_code(dry_wet_code),
+        .hardness_code(hardness_code),
 
         .note_ready(note_ready),
 //        .note_period(y_frame_wire[10:0])
