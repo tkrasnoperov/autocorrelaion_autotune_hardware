@@ -179,7 +179,22 @@ module music_key(
                     abs_diff = diff[10] ? -diff : diff;
                     if (abs_diff < min_abs_diff) begin
                         min_abs_diff <= abs_diff;
-                        note_period <= key_periods[state_counter];
+                        if (octave_code[4] == 0) begin
+                            if (state_counter >= octave_code[3:0]) begin
+                                note_period <= key_periods[state_counter - octave_code[3:0]];
+                            end
+                            else begin
+                                note_period <= key_periods[0];
+                            end
+                        end
+                        else begin
+                            if (state_counter + octave_code[3:0] < N_KEY_NOTES) begin
+                                note_period <= key_periods[state_counter + octave_code[3:0]];
+                            end
+                            else begin
+                                note_period <= key_periods[N_KEY_NOTES - 1];
+                            end
+                        end
                     end
                     state_counter <= state_counter + 1;
                 end
@@ -191,14 +206,14 @@ module music_key(
 
             OCTAVE_PEDAL:
             begin
-                case (octave_code)
-                    5'b00000: note_period <= note_period;
-                    5'b00001: note_period <= note_period >> 1;
-                    5'b00010: note_period <= note_period >> 2;
-                    5'b00011: note_period <= note_period << 1;
-                    5'b00100: note_period <= note_period << 2;
-                    default: note_period <= note_period;
-                endcase;
+                // case (octave_code)
+                //     5'b00000: note_period <= note_period;
+                //     5'b00001: note_period <= note_period >> 1;
+                //     5'b00010: note_period <= note_period >> 2;
+                //     5'b00011: note_period <= note_period << 1;
+                //     5'b00100: note_period <= note_period << 2;
+                //     default: note_period <= note_period;
+                // endcase;
                 state <= DRY_WET;
             end
 
