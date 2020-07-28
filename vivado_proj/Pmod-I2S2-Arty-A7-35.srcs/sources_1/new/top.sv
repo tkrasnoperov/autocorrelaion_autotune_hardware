@@ -150,6 +150,7 @@ module top #(
         .key_code(key_code),
         .octave_code(octave_code),
         .dry_wet_code(dry_wet_code),
+				.hardness_code(hardness_code),
 
         .key_led(led),
         .major_minor_led(led_b[0]),
