@@ -6,7 +6,7 @@ module music_key(
     input wire [10:0] wavelet_period,
     input wire [4:0] key_code,
     input wire [4:0] octave_code,
-    input wire [4:0] dry_wet_code,
+    // input wire [4:0] dry_wet_code,
     output reg note_ready,
     output reg [10:0] note_period
     );
@@ -219,16 +219,16 @@ module music_key(
 
             DRY_WET:
             begin
-                if (note_period < wavelet_period) begin
-                    jump = wavelet_period - note_period;
-                    dry_wet_diff = (jump * dry_wet_code) >> 4;
-                    note_period <= note_period + dry_wet_diff;
-                end
-                else if (wavelet_period < note_period) begin
-                    jump = note_period - wavelet_period;
-                    dry_wet_diff = (jump * dry_wet_code) >> 4;
-                    note_period <= note_period - dry_wet_diff;
-                end
+                // if (note_period < wavelet_period) begin
+                //     jump = wavelet_period - note_period;
+                //     dry_wet_diff = (jump * dry_wet_code) >> 4;
+                //     note_period <= note_period + dry_wet_diff;
+                // end
+                // else if (wavelet_period < note_period) begin
+                //     jump = note_period - wavelet_period;
+                //     dry_wet_diff = (jump * dry_wet_code) >> 4;
+                //     note_period <= note_period - dry_wet_diff;
+                // end
                 state <= CLEANUP;
             end
 
